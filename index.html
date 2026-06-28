@@ -230,7 +230,7 @@
             Request Confidential Buyer Brief
           </a>
         </div>
-        <p class="final-email">If the button does not open, email <a href="mailto:contact@fluxedit.me?subject=Request%20Confidential%20Buyer%20Brief&body=Hi%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20confidential%20buyer%20brief%20for%20the%20adult%20traffic%20monetization%20asset.%0A%0AWe%E2%80%99d%20like%20to%20review%20the%20payer%20behavior%2C%20GEO%2Fpayment%20split%2C%20risk%20notes%2C%20and%20transfer%20path%20against%20our%20traffic%20and%20payment%20stack.%0A%0ACompany%20%2F%20operator%3A%0ATraffic%20type%20%2F%20main%20GEOs%3A%0AMonthly%20adult%20traffic%20volume%3A%0AWebsite%20%2F%20network%3A%0APreferred%20deal%20type%3A%0A" target="_blank" rel="noopener">contact@fluxedit.me</a></p>
+        <p class="final-email">If the button does not open, email <a id="contact_email" href="mailto:contact@fluxedit.me?subject=Request%20Confidential%20Buyer%20Brief&body=Hi%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20confidential%20buyer%20brief%20for%20the%20adult%20traffic%20monetization%20asset.%0A%0AWe%E2%80%99d%20like%20to%20review%20the%20payer%20behavior%2C%20GEO%2Fpayment%20split%2C%20risk%20notes%2C%20and%20transfer%20path%20against%20our%20traffic%20and%20payment%20stack.%0A%0ACompany%20%2F%20operator%3A%0ATraffic%20type%20%2F%20main%20GEOs%3A%0AMonthly%20adult%20traffic%20volume%3A%0AWebsite%20%2F%20network%3A%0APreferred%20deal%20type%3A%0A" target="_blank" rel="noopener">contact@fluxedit.me</a></p>
         <p class="final-note">Shared privately with qualified adult traffic owners and media operators only.</p>
       </div>
     </section>
@@ -254,6 +254,19 @@
     document.getElementById("telegram_bot").addEventListener("click", () => track("telegram_bot"));
     document.getElementById("request_PDF").addEventListener("click", () => track("request_PDF"));
     document.getElementById("request_PDF_footer").addEventListener("click", () => track("request_PDF_footer"));
+    document.getElementById("contact_email").addEventListener("click", () => track("contact_email"));
+
+    window.addEventListener("scroll", () => {
+      if (bottomTracked) return;
+
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const pageHeight = document.documentElement.scrollHeight;
+
+      if (scrollPosition >= pageHeight - 50) {
+        bottomTracked = true;
+        track("scroll_bottom");
+      }
+    });
   </script>
 </body>
 </html>
