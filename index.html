@@ -235,22 +235,19 @@
       </div>
     </section>
   </main>
+  <script>
+  function track(event) {
+    fetch("/track", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({ event })
+    });
+  }
+  
+  document.getElementById("request_PDF").addEventListener("click", () => track("request_PDF"));
+  document.getElementById("telegram_bot").addEventListener("click", () => track("telegram_bot"));
+  </script>
 </body>
-<script>
-function track(event) {
-  fetch("/track", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({ event })
-  });
-}
-
-document.getElementById("request_PDF")
-  .addEventListener("click", () => track("request_PDF"));
-
-document.getElementById("telegram_bot")
-  .addEventListener("click", () => track("telegram_bot"));
-</script>
 </html>
