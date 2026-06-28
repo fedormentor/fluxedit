@@ -255,18 +255,6 @@
     document.getElementById("request_PDF").addEventListener("click", () => track("request_PDF"));
     document.getElementById("request_PDF_footer").addEventListener("click", () => track("request_PDF_footer"));
     document.getElementById("contact_email").addEventListener("click", () => track("contact_email"));
-
-    window.addEventListener("scroll", () => {
-      if (bottomTracked) return;
-
-      const scrollPosition = window.innerHeight + window.scrollY;
-      const pageHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= pageHeight - 50) {
-        bottomTracked = true;
-        track("scroll_bottom");
-      }
-    });
   </script>
 </body>
 </html>
